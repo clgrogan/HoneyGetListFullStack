@@ -4,19 +4,23 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
   return (
     <header>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Show All Lists</Link>
+      <nav class="headerNav">
+        <ul class="navUl">
+          <li class="titleLi">
+            <Link className="titleH1" to="/">
+              <h1 class="titleH1">Honey Get List</h1>
+            </Link>
           </li>
-          <li className="titleNavLi">
-            <h1 className="titleH1">Honey Get List</h1>
-          </li>
-          <li>
-            <Link to="/AddList">Add a new list</Link>
-          </li>
-          <li>
-            <Link to="/TheList/1">Display the list's page</Link>
+          <li class="optionsLi">
+            <p>Priority</p>
+            <button class="sortButton sortDownButton">
+              <i class="fas fa-sort-amount-down"></i>
+            </button>
+            <button class="menuButton">
+              <Link to="/AddList">
+                <i class="fas fa-ellipsis-v"></i>
+              </Link>
+            </button>
           </li>
         </ul>
       </nav>

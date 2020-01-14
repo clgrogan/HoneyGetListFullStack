@@ -9,5 +9,212 @@ html {
 body {
   margin: 0;
   min-height: 100%;
-  background-color: fuchsia;
+  background-color: whitesmoke;
+  background-color: purple;
 }
+
+header,
+main {
+  padding: 0 0.5em 0.5em 0.5em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  padding: 0.5em;
+  background-color: goldenrod;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navUl {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+.titleH1 {
+  margin: 0;
+}
+
+.padLeft {
+  padding: 0.5em;
+}
+
+li,
+.titleDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  background-color: transparent;
+  font-size: 1.2em;
+  padding-bottom: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.priority {
+  background-color: darkgray;
+  color: white;
+  padding: 0.4em;
+  border-radius: 1em;
+  margin: 0.2em 0 0.2em 0;
+}
+
+.highPriority {
+  background-color: #494;
+}
+
+.mediumPriority {
+  background-color: goldenrod;
+  color: black;
+}
+
+.lowPriority {
+  background-color: darkgray;
+  color: black;
+}
+
+.titlePlaceHolder {
+  color: darkgray;
+}
+
+.listLiSection {
+  width: 100%;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listDescLiSection {
+  justify-content: left;
+}
+
+.listDescInput {
+  height: 4em;
+  width: 100%;
+  background-color: transparent;
+  border-style: none;
+  text-align: start;
+}
+
+.listDescInputDiv {
+  width: 100%;
+  margin: 0.5em;
+  background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.optionsLi,
+.switch-div {
+  display: flex;
+  align-items: center;
+}
+
+.addItemSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em 0 0.2em 0;
+  font-size: 1.5em;
+  color: #555;
+}
+
+.itemActions {
+  display: flex;
+  align-items: center;
+}
+
+.deletedItems {
+  opacity: 0.4;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2.4em;
+  height: 1.3em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 1em;
+  width: 1em;
+  left: 0.3em;
+  bottom: 0.2em;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(1em);
+  -ms-transform: translateX(1em);
+  transform: translateX(1em);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 1em;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+// :root {
+//   font: 16px / 1 sans-serif;
+// }
+
+// html {
+//   height: 100%;
+// }
+
+// body {
+//   margin: 0;
+//   min-height: 100%;
+//   background-color: fuchsia;
+// }
