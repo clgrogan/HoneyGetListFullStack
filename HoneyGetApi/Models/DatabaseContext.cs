@@ -7,6 +7,10 @@ namespace HoneyGetApi.Models
 {
   public partial class DatabaseContext : DbContext
   {
+    public DbSet<TheList> TheLists { get; set; }
+    public DbSet<Item> Items { get; set; }
+    public DbSet<Category> Categories { get; set; }
+
 
     private string ConvertPostConnectionToConnectionString(string connection)
     {
