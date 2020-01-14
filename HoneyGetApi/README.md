@@ -1,3 +1,6 @@
+Deployment URL:
+https://honey-get-api.herokuapp.com/
+
 # Defualt Template for SDG .NET Course
 
 This is the default template for a simple .NET Core Web API. This template has:
