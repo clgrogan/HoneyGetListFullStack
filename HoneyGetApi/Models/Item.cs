@@ -15,7 +15,7 @@ namespace HoneyGetApi.Models
     public int TheListId { get; set; }
     public TheList TheList { get; set; }
 
-    public int CategoryId { get; set; }
+    public int? CategoryId { get; set; }
     public Category Category { get; set; }
 
 

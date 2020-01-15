@@ -1,5 +1,6 @@
 Deployment URL:
-https://honey-get-api.herokuapp.com/
+https://honey-get-api.herokuapp.com
+https://honey-get-client-cgrogan.netlify.com
 
 # Defualt Template for SDG .NET Course
 
