@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import TheListLi from '../components/TheListLi'
+import ListLi from '../components/ListLi'
 import axios from 'axios'
 
 const AllLists = () => {
@@ -9,7 +9,8 @@ const AllLists = () => {
 
   // Make API call to return all lists
   const getAllLists = async () => {
-    const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
+    // const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
+    const apiUrl = 'https://localhost:5001/api/thelist'
     console.log('API Url set to:', apiUrl)
     const resp = await axios.get(apiUrl)
     setAllLists(resp.data)
@@ -31,8 +32,8 @@ const AllLists = () => {
           {console.log('print array ', allLists)}
           <table>
             <tbody>
-              {allLists.map(theList => {
-                return <TheListLi key={theList.id} theList={theList} />
+              {allLists.map(list => {
+                return <ListLi key={list.id} list={list} />
               })}
             </tbody>
           </table>

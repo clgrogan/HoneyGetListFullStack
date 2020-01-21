@@ -32,14 +32,35 @@ namespace HoneyGetApi.Controllers
     [HttpGet("{id}")]
     public async Task<ActionResult<TheList>> GetTheList(int id)
     {
-      var theList = await db.TheLists.FindAsync(id);
+      var theList = await db
+      .TheLists
+      .Include(i => i.Items)
+      .FirstOrDefaultAsync(f => f.Id == id);
 
       if (theList == null)
       {
-        return NotFound();
+        return NotFound($"No List exists with the ID passed. ID passed : {id}");
       }
-
-      return theList;
+      else
+      {
+        var rv = new TheListDetails
+        {
+          Id = theList.Id,
+          Name = theList.Name,
+          Description = theList.Description,
+          Items = theList.Items.Select(item => new ExistingItem
+          {
+            Id = item.Id,
+            Name = item.Name,
+            Description = item.Description,
+            Quantity = item.Quantity,
+            Priority = item.Priority,
+            LastModified = item.LastModified,
+            TheListId = item.TheListId
+          }).ToList()
+        };
+        return Ok(rv);
+      }
     }
 
     // PUT: api/TheList/5
