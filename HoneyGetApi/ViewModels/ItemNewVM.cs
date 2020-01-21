@@ -1,7 +1,7 @@
 ﻿
 namespace HoneyGetApi.ViewModels
 {
-  public class ItemNewVM
+  public class ItemNewVm
   {
     public int Id { get; set; }
     public string Name { get; set; }

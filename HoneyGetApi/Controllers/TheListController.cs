@@ -43,12 +43,12 @@ namespace HoneyGetApi.Controllers
       }
       else
       {
-        var rv = new TheListDetails
+        var rv = new TheListDetailsVm
         {
           Id = theList.Id,
           Name = theList.Name,
           Description = theList.Description,
-          Items = theList.Items.Select(item => new ExistingItem
+          Items = theList.Items.Select(item => new ExistingItemVm
           {
             Id = item.Id,
             Name = item.Name,
@@ -99,7 +99,7 @@ namespace HoneyGetApi.Controllers
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for
     // more details see https://aka.ms/RazorPagesCRUD.
     [HttpPost]
-    public async Task<ActionResult<TheListNewVM>> PostTheList(TheListNewVM theList)
+    public async Task<ActionResult<TheListNewVm>> PostTheList(TheListNewVm theList)
     {
       // If a list with the same name exists return bad request.
       var rv = await db
