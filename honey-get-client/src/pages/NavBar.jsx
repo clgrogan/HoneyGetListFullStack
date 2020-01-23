@@ -12,7 +12,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li className="optionsLi">
-            <p>Priority</p>
+            <div>Priority</div>
             <button className="sortButton sortDownButton">
               <i className="fas fa-sort-amount-down"></i>
             </button>

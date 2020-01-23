@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+// using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HoneyGetApi.Models;
@@ -23,9 +23,18 @@ namespace HoneyGetApi.Controllers
 
     // GET: api/TheList
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TheList>>> GetTheLists()
+    public async Task<ActionResult<IEnumerable<Object>>> GetTheLists()
     {
-      return await db.TheLists.ToListAsync();
+      return await db.TheLists
+            .Include(i => i.Items)
+            .Select(list => new
+            {
+              Id = list.Id,
+              list.Name,
+              itemcount = list.Items.Count(),
+              maxpriority = list.Items.Max(i => i.Priority)
+            })
+            .ToListAsync();
     }
 
     // GET: api/TheList/5

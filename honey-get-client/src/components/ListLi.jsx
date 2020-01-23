@@ -5,7 +5,7 @@ const ListLi = props => {
   console.log('The List Li props: ', props)
   return (
     <>
-      <tr>
+      <tr className="tableRow">
         <td>{props.list.id}</td>
         <td>
           <Link className="listLink" to={'/List/' + props.list.id}>
@@ -13,6 +13,8 @@ const ListLi = props => {
           </Link>
         </td>
         <td>{props.list.description}</td>
+        <td>{props.list.itemcount}</td>
+        <td>{props.list.maxpriority}</td>
       </tr>
     </>
   )

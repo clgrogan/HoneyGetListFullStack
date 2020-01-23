@@ -38,6 +38,11 @@ const AllLists = () => {
             </tbody>
           </table>
         </section>
+        <section className="listLiSection addItemSection">
+          <p className="addListP">
+            <i className="fas fa-plus"></i>
+          </p>
+        </section>
       </main>
     </>
   )
