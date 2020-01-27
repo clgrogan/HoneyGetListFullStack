@@ -56,12 +56,6 @@ const AllLists = () => {
               >
                 <i className="fas fa-sort-amount-down"></i>
               </button>
-              <button
-                className="sortButton sortDownButton"
-                onClick={sortAscending}
-              >
-                <i className="fas fa-sort-amount-down"></i>
-              </button>
               <button className="menuButton">
                 <Link to="/AddList">
                   <i className="fas fa-ellipsis-v"></i>

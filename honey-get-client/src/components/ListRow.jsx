@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import TruncateString from './TruncateString'
+import useTruncateString from './useTruncateString'
 
 const ListRow = props => {
   const indexStart = 0 // Used for truncation
