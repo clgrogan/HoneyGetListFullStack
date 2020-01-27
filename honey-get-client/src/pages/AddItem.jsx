@@ -9,6 +9,7 @@ const AddItem = props => {
     thelistid: parseInt(props.match.params.ListId),
     name: '',
     description: '',
+    priority: 2,
   })
 
   // When successful itemId will != 0
@@ -67,6 +68,18 @@ const AddItem = props => {
                   />
                 </div>
               </label>
+              <div>
+                Priority:
+                <select name="priority" defaultValue="2">
+                  <option className="priority" value="1">
+                    Low
+                  </option>
+                  <option className="priority2" value="2">
+                    Normal
+                  </option>
+                  <option value="3">High</option>
+                </select>
+              </div>
               <button className="addBtn" type="submit">
                 <i className="fas fa-plus"></i>
               </button>

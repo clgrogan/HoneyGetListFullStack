@@ -95,7 +95,7 @@ namespace HoneyGetApi.Controllers
         TheListId = item.TheListId,
         Quantity = 1,
         CategoryId = null,
-        Priority = 2,
+        Priority = item.Priority,
         LastModified = DateTime.UtcNow
       };
 
