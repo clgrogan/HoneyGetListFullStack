@@ -31,6 +31,7 @@ namespace HoneyGetApi.Controllers
             {
               Id = list.Id,
               list.Name,
+              list.Description,
               itemcount = list.Items.Count(),
               maxpriority = list.Items.Max(i => i.Priority)
             })

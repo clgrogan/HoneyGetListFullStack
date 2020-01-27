@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import ItemLi from '../components/ItemLi'
+import ItemRow from '../components/ItemRow'
+import { Link } from 'react-router-dom'
 
 const List = props => {
   console.log('my props ', props)
@@ -24,22 +25,54 @@ const List = props => {
   }, [])
 
   const listId = props.match.params.ListId
+  const listName = props.match.params.ListName
 
   return (
     <>
+      <header>
+        <nav className="headerNav">
+          <ul className="navUl">
+            <li className="titleLi flexLeft">
+              <Link className="titleH1" to="/">
+                <h1 className="titleH1" to="/">
+                  <i class="backArrow far fa-arrow-alt-circle-left"></i>
+                </h1>
+              </Link>
+              <h1 className="titleH1">{list.name}</h1>
+            </li>
+            <li className="optionsLi">
+              <div>Priority</div>
+
+              <button
+                className="sortButton sortDownButton"
+                // onClick={sortAscending}
+              >
+                <i className="fas fa-sort-amount-down"></i>
+              </button>
+              <button className="menuButton">
+                <Link to="/AddList">
+                  <i className="fas fa-ellipsis-v"></i>
+                </Link>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <main>
-        <h1>!!! The List Main !!!</h1>
-        <h2>list.name from API Call: {list.name}</h2>
-        <h2>list.items from API Call: {items.length}</h2>
         <section>
           {console.log('List Array from API Call: ', list)}
-          <table>
+          <table className="listTable">
             <tbody>
               {items.map(item => {
-                return <ItemLi key={item.id} item={item} />
+                return <ItemRow key={item.id} item={item} />
               })}
             </tbody>
           </table>
+        </section>
+        <section className="addItemSection">
+          <Link className="addItemSection" to={'/AddItem/' + listId}>
+            <i className="fas fa-plus"></i>
+          </Link>
         </section>
       </main>
     </>

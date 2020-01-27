@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const NavBar = () => {
+const NavBarAllLists = () => {
   const sortAscending = () => {
     console.log('Sort Ascending Function Fired.')
   }
@@ -42,4 +42,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default NavBarAllLists

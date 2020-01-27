@@ -20,7 +20,32 @@ main {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #000;
+}
+
+.flexLeft {
+  display: flex;
+  justify-content: left;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.oneHalfRemPadLeft {
+  padding-left: 0.5rem;
+}
+
+.subduedRowText {
+  color: #444;
+  font-size: 0.9rem;
 }
 
 header {
@@ -61,30 +86,43 @@ button {
   padding-bottom: 0;
 }
 
+.addListBtn {
+  background-color: goldenrod;
+}
+
 .priority {
-  background-color: darkgray;
-  color: white;
+  background-color: transparent;
   padding: 0.4em;
   border-radius: 1em;
   margin: 0.2em 0 0.2em 0;
 }
 
-.highPriority {
+.priority3 {
   background-color: #494;
 }
 
-.mediumPriority {
+.priority2 {
   background-color: goldenrod;
   color: black;
 }
 
-.lowPriority {
-  background-color: darkgray;
+.priority1 {
+  background-color: lightgray;
   color: black;
 }
 
+// default style
+// .priority0 {
+//   background-color: transparent;
+//   color: black;
+// }
+
 .titlePlaceHolder {
   color: darkgray;
+}
+
+.listTable {
+  width: 100%;
 }
 
 .tableRow {
@@ -125,8 +163,13 @@ button {
   justify-content: center;
   align-items: center;
   padding: 0.2em 0 0.2em 0;
-  font-size: 1.5em;
+  font-size: 1em;
   color: #555;
+}
+
+.addLabel {
+  display: flex;
+  align-items: center;
 }
 
 .itemActions {
