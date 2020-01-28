@@ -1,32 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 import { useAlert } from 'react-alert'
-const AddList = () => {
+const UpdateList = props => {
   const [list, setList] = useState({
+    id: '',
     name: '',
     description: '',
   })
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const alert = useAlert()
 
-  // When successful listId will not equal zero
-  const [listId, setListId] = useState(0)
-
-  const addListApiCall = async e => {
-    e.preventDefault()
-    console.log('list object: ', list)
-    // const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
-    const apiUrl = 'https://localhost:5001/api/thelist'
-    console.log('API Url set to:', apiUrl)
-    const resp = await axios.post(apiUrl, list)
+  const getList = async () => {
+    const apiUrl = 'https://localhost:5001/api/thelist/' + listId
+    const resp = await axios.get(apiUrl)
+    setList(resp.data)
     console.log(resp)
-    if (resp.status === 201) {
-      setListId(resp.data.id)
+    console.log(apiUrl)
+  }
+
+  const updateListApiCall = async e => {
+    e.preventDefault()
+    console.log('list object: ', listId)
+    // const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
+    const apiUrl = 'https://localhost:5001/api/thelist/' + listId
+    console.log('API Url set to:', apiUrl)
+    const resp = await axios.put(apiUrl, list)
+    console.log(resp)
+    if (resp.status === 204) {
       alert.show(
         <>
-          <p>The list was created.</p>
-          <p>Click the plus sign to start adding items!</p>
+          <p>Your list has been updated.</p>
         </>
       )
       setShouldRedirect(true)
@@ -41,6 +45,20 @@ const AddList = () => {
       [e.target.name]: e.target.value,
     }))
   }
+
+  // Handle Onclick
+  const cancelOnClick = () => {
+    setShouldRedirect(true)
+  }
+
+  // Use effect for Page Render
+  useEffect(() => {
+    console.log('UpdateList.jsx UseEffect[] executed for ')
+    getList()
+  }, [])
+
+  const listId = props.match.params.ListId
+
   return shouldRedirect ? (
     <Redirect to={'/list/' + listId}></Redirect>
   ) : (
@@ -49,17 +67,17 @@ const AddList = () => {
         <nav className="headerNav">
           <ul className="navUl">
             <li className="titleLi">
-              <Link className="flexCenter" to="/">
-                <h1 className="titleH1" to="/">
+              <Link className="flexCenter" to={'/List/' + listId}>
+                <h1 className="titleH1">
                   <i className="backArrow far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
               <Link className="flexCenter" to="/">
-                <h1 className="oneHalfRemPadLeft titleH1">CreateNewList</h1>
+                <h1 className="oneHalfRemPadLeft titleH1">{list.name}</h1>
               </Link>
             </li>
             <li className="optionsLi">
-              <div>Cancel</div>
+              <div>Editing</div>
               <Link className="flexCenter cancel" to="/">
                 <h1 className="titleH1 oneHalfRemPadLeft" to="/">
                   <i className="far fa-window-close"></i>
@@ -73,7 +91,7 @@ const AddList = () => {
       <main>
         <>
           <section className="formSection flexCenter">
-            <form className="addListForm" onSubmit={addListApiCall}>
+            <form className="addListForm" onSubmit={updateListApiCall}>
               <section className="formInputSection addSection flexCenter">
                 <label className="addLabel">
                   {/* <div className="padLeft"> */}
@@ -103,10 +121,14 @@ const AddList = () => {
                     maxLength="30"
                   />
                 </label>
-                <button className="addListBtn" type="submit">
-                  <i className="fas fa-plus"></i> Create
-                  <i className="oneHalfRemPadLeft fas fa-plus"></i>
-                </button>
+                <div className="flexCenter">
+                  <button className="updateListBtn" onClick={cancelOnClick}>
+                    Cancel
+                  </button>
+                  <button className="updateListBtn" type="submit">
+                    Save
+                  </button>
+                </div>
               </section>
             </form>
           </section>
@@ -115,5 +137,4 @@ const AddList = () => {
     </>
   )
 }
-
-export default AddList
+export default UpdateList

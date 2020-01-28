@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Link, Redirect } from 'react-router-dom'
-import { useAlert } from 'react-alert'
+//ToDo Fix OnChange
+// Display failure and message
+// Display success, redirect to List page.
 const AddItem = props => {
   console.log('addItem props: ', props)
   const [item, setItem] = useState({
@@ -10,31 +11,24 @@ const AddItem = props => {
     description: '',
     priority: 2,
   })
-  const [shouldRedirect, setShouldRedirect] = useState(false)
-  const alert = useAlert()
 
   // When successful itemId will != 0
   const [itemId, setItemId] = useState(0)
-  const [number, setNumber] = useState(2)
-
+  const [numberTest, setNumberTest] = useState(2)
   const AddItemApiCall = async e => {
     e.preventDefault()
+    console.log('item object: ', item)
     // const apiUrl = 'https://honey-get-api.herokuapp.com/api/item'
     const apiUrl = 'https://localhost:5001/api/item'
     console.log('API Url set to:', apiUrl, item)
     const resp = await axios.post(apiUrl, {
       ...item,
-      priority: parseInt(number),
+      priority: parseInt(numberTest),
     })
     console.log(resp.status)
     if (resp.status === 201) {
       setItemId(resp.data.id)
-      alert.show(
-        <>
-          <p>The item was created.</p>
-        </>
-      )
-      setShouldRedirect(true)
+      console.log('response new id: ', resp.data.id)
     }
   }
 
@@ -46,38 +40,8 @@ const AddItem = props => {
       [e.target.name]: e.target.value,
     }))
   }
-  return shouldRedirect ? (
-    <Redirect to={'/List/' + item.thelistid}></Redirect>
-  ) : (
+  return (
     <>
-      <header>
-        <nav className="headerNav">
-          <ul className="navUl">
-            <li className="titleLi">
-              <Link className="flexCenter" to={'/List/' + item.thelistid}>
-                <h1 className="titleH1">
-                  <i className="backArrow far fa-arrow-alt-circle-left"></i>
-                </h1>
-              </Link>
-              <Link className="flexCenter" to="/">
-                <h1 className="oneHalfRemPadLeft titleH1">Add Item</h1>
-              </Link>
-            </li>
-            <li className="optionsLi">
-              <div>Cancel</div>
-              <Link
-                className="flexCenter cancel"
-                to={'/List/' + item.thelistid}
-              >
-                <h1 className="titleH1 oneHalfRemPadLeft" to="/">
-                  <i className="far fa-window-close"></i>
-                </h1>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
       <main>
         <section className="formSection flexCenter">
           <form className="AddItemForm" onSubmit={AddItemApiCall}>
@@ -113,16 +77,15 @@ const AddItem = props => {
                   type="number"
                   name="priority"
                   defaultValue="2"
-                  onChange={e => setNumber(e.target.value)}
+                  onChange={e => setNumberTest(e.target.value)}
                 >
                   <option value="1">Low</option>
                   <option value="2">Normal</option>
                   <option value="3">High</option>
                 </select>
               </div>
-              <button className="addListBtn" type="submit">
-                <i className="fas fa-plus"></i> Create
-                <i className="oneHalfRemPadLeft fas fa-plus"></i>
+              <button className="addBtn" type="submit">
+                <i className="fas fa-plus"></i>
               </button>
             </section>
           </form>

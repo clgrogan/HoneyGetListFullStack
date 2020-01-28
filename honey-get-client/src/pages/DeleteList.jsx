@@ -3,50 +3,23 @@ import axios from 'axios'
 import ItemRow from '../components/ItemRow'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
-import { useAlert } from 'react-alert'
+// import { useAlert } from 'react-alert'
 
-const List = props => {
+const DeleteList = props => {
   console.log('my props ', props)
 
   const [list, setList] = useState([])
   const [items, setItems] = useState([])
-  const [shouldRedirect, setShouldRedirect] = useState(false)
-  const [displayMenu, setDisplayMenu] = useState(false)
-  const alert = useAlert()
+  // const alert = useAlert()
 
   const getList = async () => {
     const apiUrl = 'https://localhost:5001/api/thelist/' + listId
+
     const resp = await axios.get(apiUrl)
     setList(resp.data)
     setItems(resp.data.items)
     console.log(resp)
     console.log(apiUrl)
-  }
-
-  const deleteListApiCall = async () => {
-    console.log('list object: ', listId)
-    // const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
-    const apiUrl = 'https://localhost:5001/api/thelist/' + listId
-    console.log('API Url set to:', apiUrl, list)
-    const resp = await axios.delete(apiUrl, list)
-    console.log('resp.status', resp.status)
-    if (resp.status === 200) {
-      alert.show('The list was deleted.')
-      setShouldRedirect(true)
-    }
-  }
-
-  const deleteOnClick = () => {
-    // Display a confirmation pop-up and give option to continue or cancel the action
-    if (window.confirm('Are you sure you wish to delete the list?')) {
-      // if continue was selected , then perform the API call and redirect to lists
-      deleteListApiCall()
-    }
-  }
-
-  const hideDisplayMenu = () => {
-    console.log(displayMenu)
-    setDisplayMenu(false)
   }
 
   // Use effect for Page Render
@@ -58,9 +31,7 @@ const List = props => {
   const listId = props.match.params.ListId
   const listName = props.match.params.ListName
 
-  return shouldRedirect ? (
-    <Redirect to="/"></Redirect>
-  ) : (
+  return (
     <>
       <header>
         <nav className="headerNav">
@@ -71,34 +42,40 @@ const List = props => {
                   <i className="backArrow far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
-              <h1 className="oneHalfRemPadLeft titleH1">{list.name}</h1>
+              <h1 className="oneHalfRemPadLeft titleH1">{listName}</h1>
             </li>
             <li className="optionsLi">
               <div>Priority</div>
 
-              <button className="sortButton sortDownButton">
+              <button
+                className="sortButton sortDownButton"
+                // onClick={sortAscending}
+              >
                 <i className="fas fa-sort-amount-down"></i>
               </button>
 
-              <div className="dropdown">
-                <button
-                  className="dropbtn"
-                  onClick={() => setDisplayMenu(true)}
-                >
+              <div class="dropdown">
+                <button class="dropbtn">
                   <i className="fas fa-ellipsis-v"></i>
                 </button>
-                <div
-                  className={`dropdown-content ${
-                    displayMenu ? 'show-menu' : ''
-                  } `}
-                >
-                  <Link to={'/UpdateList/' + listId}>Edit</Link>
-                  <div className="onClickDelete" onClick={deleteOnClick}>
+                <div class="dropdown-content">
+                  <Link to="/AddList">Create List</Link>
+                  <div
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          'Are you sure you wish to delete the list?'
+                        )
+                      )
+                        console.log('now delete list and return to listswww')
+                      // alert.show('The list is being deleted.')
+                      // <Redirect to="/">
+                    }}
+                  >
                     Delete
                   </div>
-                  <div className="onClickExit" onClick={hideDisplayMenu}>
-                    Exit
-                  </div>
+                  {/* <a href="#">Link 2</a>
+                  <a href="#">Link 3</a> */}
                 </div>
               </div>
             </li>
@@ -107,6 +84,7 @@ const List = props => {
       </header>
       <main>
         <section>
+          {console.log('List Array from API Call: ', list)}
           <table className="listTable">
             <tbody>
               {items.map(item => {

@@ -16,7 +16,7 @@ const ListRow = props => {
             }
             to={'/List/' + props.list.id}
           >
-            <i class="fas fa-shopping-cart"></i>
+            <i className="fas fa-shopping-cart"></i>
           </Link>
           <Link
             className="oneHalfRemPadLeft listLink"

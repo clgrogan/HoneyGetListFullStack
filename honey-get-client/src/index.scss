@@ -96,8 +96,16 @@ button {
   padding-bottom: 0;
 }
 
-.addListBtn {
+.addListBtn,
+.updateListBtn {
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5rem;
   background-color: goldenrod;
+}
+.onClickDelete,
+.onClickExit {
+  padding: 0.2rem;
 }
 
 .priority {
@@ -260,10 +268,9 @@ input:checked + .slider:before {
 }
 /* Dropdown Button */
 .dropbtn {
-  background-color: #4caf50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
+  background-color: transparent;
+  color: #000;
+  // padding: 16px;
   border: none;
 }
 
@@ -276,11 +283,17 @@ input:checked + .slider:before {
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
-  // position: absolute;
+  position: absolute;
   background-color: #f1f1f1;
   // min-width: 20rem;
+  top: 0;
+  right: 1rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1; // supposed to place in front of other elements not working
+}
+
+.show-menu {
+  display: block;
 }
 
 /* Links inside the dropdown */
@@ -303,5 +316,5 @@ input:checked + .slider:before {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  // background-color: #bbb;
 }

@@ -7,6 +7,8 @@ const AllLists = () => {
   // declare array to house the lists
   const [allLists, setAllLists] = useState([])
 
+  const [sortedAscending, setSortedAscending] = useState(true)
+
   // Make API call to return all lists
   const getAllLists = async () => {
     // const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
@@ -17,13 +19,20 @@ const AllLists = () => {
   }
 
   // sort the list
-  const sortAscending = () => {
-    let sortedLists = allLists.sort((a, b) =>
+  const sortArray = () => {
+    let sortedArray = allLists.sort((a, b) =>
       a.maxpriority > b.maxpriority ? 1 : -1
     )
 
-    console.log('Sort Ascending Function Fired. sortedLists', sortedLists)
-    setAllLists([...sortedLists])
+    if (sortedAscending === true) {
+      sortedArray.reverse()
+      setSortedAscending(false)
+    } else {
+      setSortedAscending(true)
+    }
+
+    console.log('Sort Ascending Function Fired. sortedArray', sortedArray)
+    setAllLists([...sortedArray])
   }
 
   // Use Effect on Page Render
@@ -49,12 +58,8 @@ const AllLists = () => {
             </li>
             <li className="optionsLi">
               <div>Priority</div>
-
-              <button
-                className="sortButton sortDownButton"
-                onClick={sortAscending}
-              >
-                <i className="fas fa-sort-amount-down"></i>
+              <button onClick={sortArray}>
+                <i className="fas fa-sort"></i>
               </button>
               <button className="menuButton">
                 <Link to="/AddList">
