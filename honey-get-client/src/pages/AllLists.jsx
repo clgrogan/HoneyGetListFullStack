@@ -11,8 +11,8 @@ const AllLists = () => {
 
   // Make API call to return all lists
   const getAllLists = async () => {
-    // const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
-    const apiUrl = 'https://localhost:5001/api/thelist'
+    const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
+    // const apiUrl = 'https://localhost:5001/api/thelist'
     console.log('API Url set to:', apiUrl)
     const resp = await axios.get(apiUrl)
     setAllLists(resp.data)
