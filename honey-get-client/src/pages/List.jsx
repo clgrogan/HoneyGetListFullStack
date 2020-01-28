@@ -35,7 +35,7 @@ const List = props => {
             <li className="titleLi flexLeft">
               <Link className="titleH1" to="/">
                 <h1 className="titleH1" to="/">
-                  <i class="backArrow far fa-arrow-alt-circle-left"></i>
+                  <i className="backArrow far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
               <h1 className="titleH1">{list.name}</h1>
@@ -49,11 +49,17 @@ const List = props => {
               >
                 <i className="fas fa-sort-amount-down"></i>
               </button>
-              <button className="menuButton">
-                <Link to="/AddList">
+
+              <div class="dropdown">
+                <button class="dropbtn">
                   <i className="fas fa-ellipsis-v"></i>
-                </Link>
-              </button>
+                </button>
+                <div class="dropdown-content">
+                  <Link to="/AddList">Create New List</Link>
+                  {/* <a href="#">Link 2</a>
+                  <a href="#">Link 3</a> */}
+                </div>
+              </div>
             </li>
           </ul>
         </nav>

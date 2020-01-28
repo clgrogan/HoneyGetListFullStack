@@ -14,14 +14,17 @@ const AddItem = props => {
 
   // When successful itemId will != 0
   const [itemId, setItemId] = useState(0)
-
+  const [numberTest, setNumberTest] = useState(2)
   const AddItemApiCall = async e => {
     e.preventDefault()
     console.log('item object: ', item)
     // const apiUrl = 'https://honey-get-api.herokuapp.com/api/item'
     const apiUrl = 'https://localhost:5001/api/item'
     console.log('API Url set to:', apiUrl, item)
-    const resp = await axios.post(apiUrl, item)
+    const resp = await axios.post(apiUrl, {
+      ...item,
+      priority: parseInt(numberTest),
+    })
     console.log(resp.status)
     if (resp.status === 201) {
       setItemId(resp.data.id)
@@ -70,13 +73,14 @@ const AddItem = props => {
               </label>
               <div>
                 Priority:
-                <select name="priority" defaultValue="2">
-                  <option className="priority" value="1">
-                    Low
-                  </option>
-                  <option className="priority2" value="2">
-                    Normal
-                  </option>
+                <select
+                  type="number"
+                  name="priority"
+                  defaultValue="2"
+                  onChange={e => setNumberTest(e.target.value)}
+                >
+                  <option value="1">Low</option>
+                  <option value="2">Normal</option>
                   <option value="3">High</option>
                 </select>
               </div>

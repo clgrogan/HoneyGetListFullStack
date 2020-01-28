@@ -9,8 +9,19 @@ const ListRow = props => {
   return (
     <>
       <tr className="tableRow">
-        <td className="flexLeft">
-          <Link className="listLink" to={'/List/' + props.list.id}>
+        <td className="flexCenter flexLeft">
+          <Link
+            className={
+              'cartPriority priority priority' + props.list.maxpriority
+            }
+            to={'/List/' + props.list.id}
+          >
+            <i class="fas fa-shopping-cart"></i>
+          </Link>
+          <Link
+            className="oneHalfRemPadLeft listLink"
+            to={'/List/' + props.list.id}
+          >
             {props.list.name}
           </Link>
           <Link className="listLink" to={'/List/' + props.list.id}>
@@ -24,9 +35,9 @@ const ListRow = props => {
             </div>
           </Link>
         </td>
-        <td className={'priority priority' + props.list.maxpriority}>
-          <Link className="listLink" to={'/List/' + props.list.id}>
-            {props.list.itemcount}
+        <td>
+          <Link className="lxx" to={'/List/' + props.list.id}>
+            ({props.list.itemcount})
           </Link>
         </td>
       </tr>
