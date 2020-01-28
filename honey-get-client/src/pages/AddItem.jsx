@@ -19,8 +19,8 @@ const AddItem = props => {
 
   const AddItemApiCall = async e => {
     e.preventDefault()
-    // const apiUrl = 'https://honey-get-api.herokuapp.com/api/item'
-    const apiUrl = 'https://localhost:5001/api/item'
+    const apiUrl = 'https://honey-get-api.herokuapp.com/api/item'
+    // const apiUrl = 'https://localhost:5001/api/item'
     console.log('API Url set to:', apiUrl, item)
     const resp = await axios.post(apiUrl, {
       ...item,

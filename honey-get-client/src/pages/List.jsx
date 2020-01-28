@@ -6,8 +6,6 @@ import { Redirect } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 
 const List = props => {
-  console.log('my props ', props)
-
   const [list, setList] = useState([])
   const [items, setItems] = useState([])
   const [shouldRedirect, setShouldRedirect] = useState(false)
@@ -15,21 +13,17 @@ const List = props => {
   const alert = useAlert()
 
   const getList = async () => {
-    const apiUrl = 'https://localhost:5001/api/thelist/' + listId
+    const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist/' + listId
+    // const apiUrl = 'https://localhost:5001/api/thelist/' + listId
     const resp = await axios.get(apiUrl)
     setList(resp.data)
     setItems(resp.data.items)
-    console.log(resp)
-    console.log(apiUrl)
   }
 
   const deleteListApiCall = async () => {
-    console.log('list object: ', listId)
-    // const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
-    const apiUrl = 'https://localhost:5001/api/thelist/' + listId
-    console.log('API Url set to:', apiUrl, list)
+    const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist/' + listId
+    // const apiUrl = 'https://localhost:5001/api/thelist/' + listId
     const resp = await axios.delete(apiUrl, list)
-    console.log('resp.status', resp.status)
     if (resp.status === 200) {
       alert.show('The list was deleted.')
       setShouldRedirect(true)
@@ -45,13 +39,11 @@ const List = props => {
   }
 
   const hideDisplayMenu = () => {
-    console.log(displayMenu)
     setDisplayMenu(false)
   }
 
   // Use effect for Page Render
   useEffect(() => {
-    console.log('List.jsx UseEffect[] executed for ')
     getList()
   }, [])
 

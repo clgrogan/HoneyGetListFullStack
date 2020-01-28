@@ -15,12 +15,9 @@ const AddList = () => {
 
   const addListApiCall = async e => {
     e.preventDefault()
-    console.log('list object: ', list)
-    // const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
-    const apiUrl = 'https://localhost:5001/api/thelist'
-    console.log('API Url set to:', apiUrl)
+    const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
+    // const apiUrl = 'https://localhost:5001/api/thelist'
     const resp = await axios.post(apiUrl, list)
-    console.log(resp)
     if (resp.status === 201) {
       setListId(resp.data.id)
       alert.show(
@@ -76,7 +73,6 @@ const AddList = () => {
             <form className="addListForm" onSubmit={addListApiCall}>
               <section className="formInputSection addSection flexCenter">
                 <label className="addLabel">
-                  {/* <div className="padLeft"> */}
                   <input
                     className="inputClass"
                     type="text"
@@ -89,7 +85,6 @@ const AddList = () => {
                     maxLength="16"
                     required
                   />
-                  {/* </div> */}
                 </label>
                 <label className="addLabel">
                   <input

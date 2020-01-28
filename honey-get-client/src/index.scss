@@ -134,12 +134,6 @@ button {
   color: black;
 }
 
-// default style
-// .priority0 {
-//   background-color: transparent;
-//   color: black;
-// }
-
 .titlePlaceHolder {
   color: darkgray;
 }
@@ -285,11 +279,10 @@ input:checked + .slider:before {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  // min-width: 20rem;
-  top: 0;
-  right: 1rem;
+  top: 0; //Menu placement
+  right: 1rem; //Menu placement
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1; // supposed to place in front of other elements not working
+  z-index: 1; //Allows menu to display over other elements
 }
 
 .show-menu {

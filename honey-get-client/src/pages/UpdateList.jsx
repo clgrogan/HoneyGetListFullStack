@@ -12,21 +12,17 @@ const UpdateList = props => {
   const alert = useAlert()
 
   const getList = async () => {
-    const apiUrl = 'https://localhost:5001/api/thelist/' + listId
+    const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist/' + listId
+    // const apiUrl = 'https://localhost:5001/api/thelist/' + listId
     const resp = await axios.get(apiUrl)
     setList(resp.data)
-    console.log(resp)
-    console.log(apiUrl)
   }
 
   const updateListApiCall = async e => {
     e.preventDefault()
-    console.log('list object: ', listId)
-    // const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
-    const apiUrl = 'https://localhost:5001/api/thelist/' + listId
-    console.log('API Url set to:', apiUrl)
+    const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist/' + listId
+    // const apiUrl = 'https://localhost:5001/api/thelist/' + listId
     const resp = await axios.put(apiUrl, list)
-    console.log(resp)
     if (resp.status === 204) {
       alert.show(
         <>
@@ -53,7 +49,6 @@ const UpdateList = props => {
 
   // Use effect for Page Render
   useEffect(() => {
-    console.log('UpdateList.jsx UseEffect[] executed for ')
     getList()
   }, [])
 
@@ -94,7 +89,6 @@ const UpdateList = props => {
             <form className="addListForm" onSubmit={updateListApiCall}>
               <section className="formInputSection addSection flexCenter">
                 <label className="addLabel">
-                  {/* <div className="padLeft"> */}
                   <input
                     className="inputClass"
                     type="text"
@@ -107,7 +101,6 @@ const UpdateList = props => {
                     maxLength="16"
                     required
                   />
-                  {/* </div> */}
                 </label>
                 <label className="addLabel">
                   <input
