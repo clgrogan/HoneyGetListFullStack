@@ -93,7 +93,7 @@ namespace HoneyGetApi.Controllers
         Name = item.Name,
         Description = item.Description,
         TheListId = item.TheListId,
-        Quantity = 1,
+        Quantity = item.Quantity,
         CategoryId = null,
         Priority = item.Priority,
         LastModified = DateTime.UtcNow
