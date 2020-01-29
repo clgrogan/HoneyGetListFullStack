@@ -11,6 +11,7 @@ const List = props => {
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [displayMenu, setDisplayMenu] = useState(false)
   const alert = useAlert()
+  const [sortedAscending, setSortedAscending] = useState(true)
 
   const getList = async () => {
     const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist/' + listId
@@ -36,6 +37,20 @@ const List = props => {
       // if continue was selected , then perform the API call and redirect to lists
       deleteListApiCall()
     }
+  }
+
+  // sort the array
+  const sortArray = () => {
+    console.log(items)
+    let sortedArray = items.sort((a, b) => (a.priority > b.priority ? 1 : -1))
+
+    if (sortedAscending === true) {
+      sortedArray.reverse()
+      setSortedAscending(false)
+    } else {
+      setSortedAscending(true)
+    }
+    setItems([...sortedArray])
   }
 
   const hideDisplayMenu = () => {
@@ -68,8 +83,8 @@ const List = props => {
             <li className="optionsLi">
               <div>Priority</div>
 
-              <button className="sortButton sortDownButton">
-                <i className="fas fa-sort-amount-down"></i>
+              <button className="navBtn" onClick={sortArray}>
+                <i className="fas fa-sort"></i>
               </button>
 
               <div className="dropdown">

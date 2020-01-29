@@ -36,9 +36,7 @@ const ListRow = props => {
           </Link>
         </td>
         <td>
-          <Link className="lxx" to={'/List/' + props.list.id}>
-            ({props.list.itemcount})
-          </Link>
+          <Link to={'/List/' + props.list.id}>({props.list.itemcount})</Link>
         </td>
       </tr>
     </>

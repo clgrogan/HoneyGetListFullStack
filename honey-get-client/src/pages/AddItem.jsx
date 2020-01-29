@@ -8,6 +8,7 @@ const AddItem = props => {
     thelistid: parseInt(props.match.params.ListId),
     name: '',
     description: '',
+    quantity: 1,
     priority: 2,
   })
   const [shouldRedirect, setShouldRedirect] = useState(false)
@@ -15,16 +16,24 @@ const AddItem = props => {
 
   // When successful itemId will != 0
   const [itemId, setItemId] = useState(0)
-  const [number, setNumber] = useState(2)
+  const [priority, setPriority] = useState(2)
+  const [quantity, setQuantity] = useState(1)
 
   const AddItemApiCall = async e => {
     e.preventDefault()
     const apiUrl = 'https://honey-get-api.herokuapp.com/api/item'
     // const apiUrl = 'https://localhost:5001/api/item'
-    console.log('API Url set to:', apiUrl, item)
+    console.log(
+      'API Url set to:',
+      apiUrl,
+      parseInt(priority),
+      parseInt(quantity),
+      item
+    )
     const resp = await axios.post(apiUrl, {
       ...item,
-      priority: parseInt(number),
+      priority: parseInt(priority),
+      quantity: parseInt(quantity),
     })
     console.log(resp.status)
     if (resp.status === 201) {
@@ -107,13 +116,34 @@ const AddItem = props => {
                   />
                 </div>
               </label>
-              <div>
+              <label className="addLabel">
+                <div className="padLeft">
+                  <input
+                    type="number"
+                    min="0"
+                    name="quantity"
+                    // value={item.quantity}
+                    defaultValue="1"
+                    // onChange={handleInputOnChange}
+                    onChange={e => setQuantity(e.target.value)}
+                  />
+                </div>
+              </label>
+              <div className="flexCenter">
                 Priority:
+                <div
+                  className={
+                    'flexCenter cartPriority priority marginAroundTiny priority' +
+                    priority
+                  }
+                >
+                  <i className="fas fa-shopping-cart"></i>
+                </div>
                 <select
                   type="number"
                   name="priority"
                   defaultValue="2"
-                  onChange={e => setNumber(e.target.value)}
+                  onChange={e => setPriority(e.target.value)}
                 >
                   <option value="1">Low</option>
                   <option value="2">Normal</option>

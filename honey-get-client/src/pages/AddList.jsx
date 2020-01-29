@@ -47,13 +47,14 @@ const AddList = () => {
           <ul className="navUl">
             <li className="titleLi">
               <Link className="flexCenter" to="/">
-                <h1 className="titleH1" to="/">
+                <h1 className="titleH1">
                   <i className="backArrow far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
-              <Link className="flexCenter" to="/">
-                <h1 className="oneHalfRemPadLeft titleH1">CreateNewList</h1>
-              </Link>
+              <div className="flexCenter one">
+                <p className="marginAroundTiny">List:</p>
+                <h1 className="titleH1">{list.name}</h1>
+              </div>
             </li>
             <li className="optionsLi">
               <div>Cancel</div>
