@@ -25,7 +25,7 @@ const ItemRow = props => {
 
   const incrementPriority = () => {
     if (item.priority < 3) {
-      console.log(item)
+      // console.log(item)
       updateItemApiCall({ ...item, priority: item.priority + 1 })
     } else {
       updateItemApiCall({ ...item, priority: 0 })
@@ -40,7 +40,7 @@ const ItemRow = props => {
     if (item.quantity > 0) {
       updateItemApiCall({ ...item, quantity: item.quantity - 1 })
     }
-    console.log(item)
+    // console.log(item)
   }
 
   const updateItemApiCall = async newItem => {
@@ -63,7 +63,7 @@ const ItemRow = props => {
     } else {
       deleteItemApiCall()
     }
-    console.log(item)
+    // console.log(item)
   }
 
   const deleteItemApiCall = async () => {

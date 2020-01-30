@@ -5,7 +5,7 @@ import TruncateString from './TruncateString'
 const ListRow = props => {
   const indexStart = 0 // Used for truncation
   const maxLength = 20 // Used for truncation
-  console.log('The List Li props: ', props)
+  // console.log('The List Li props: ', props)
   return (
     <>
       <tr className="tableRow">
