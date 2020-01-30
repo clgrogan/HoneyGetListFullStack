@@ -32,8 +32,6 @@ const AllLists = () => {
       setSortedAscending(true)
     }
     setAllLists([...sortedArray])
-
-    console.log('xxxxxxxxxx')
   }
 
   // Use Effect on Page Render

@@ -17,9 +17,6 @@ const List = props => {
     const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist/' + listId
     // const apiUrl = 'https://localhost:5001/api/thelist/' + listId
     const resp = await axios.get(apiUrl)
-    if (resp.status === 200) {
-      sortArray(resp.data)
-    }
     setList(resp.data)
     setItems(resp.data.items)
   }
@@ -107,9 +104,9 @@ const List = props => {
                   <div className="onClickDelete" onClick={deleteOnClick}>
                     Delete
                   </div>
-                  {/* <div className="onClickExit" onClick={hideDisplayMenu}>
+                  <div className="onClickExit" onClick={hideDisplayMenu}>
                     Exit
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </li>

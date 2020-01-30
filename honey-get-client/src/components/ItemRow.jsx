@@ -8,7 +8,7 @@ import { useAlert } from 'react-alert'
 const ItemRow = props => {
   const indexStart = 0 // Used for truncation
   const maxLength = 20 // Used for truncation
-  console.log('The ItemRow props: ', props)
+  // console.log('The ItemRow props: ', props)
   // const [displayDescription] = useTruncateString(0, 20, props.item.description)
   // const [quantity, setQuantity] = useState(props.item.quantity)
   const [isDeleted, setIsDeleted] = useState(false)
@@ -28,7 +28,7 @@ const ItemRow = props => {
       console.log(item)
       updateItemApiCall({ ...item, priority: item.priority + 1 })
     } else {
-      updateItemApiCall({ ...item, priority: item.priority - 1 })
+      updateItemApiCall({ ...item, priority: 0 })
     }
   }
 
@@ -71,7 +71,7 @@ const ItemRow = props => {
     // const apiUrl = 'https://localhost:5001/api/thelist/' + listId
     const resp = await axios.delete(apiUrl, item)
     if (resp.status === 200) {
-      alert.show('The item was deleted.')
+      // alert.show('The item was deleted.')
       setIsDeleted(true)
     }
   }
