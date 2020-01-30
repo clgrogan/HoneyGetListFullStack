@@ -67,9 +67,13 @@ const UpdateList = props => {
                   <i className="backArrow far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
-              <Link className="flexCenter" to="/">
-                <h1 className="oneHalfRemPadLeft titleH1">{list.name}</h1>
-              </Link>
+              <div className="flexCenter">
+                <p className="marginAroundTiny">Update:</p>
+                <h1 className="titleH1">{list.name}</h1>
+                <p className="marginAroundTiny wideScreen">
+                  {list.description}
+                </p>
+              </div>
             </li>
             <li className="optionsLi">
               <div>Editing</div>

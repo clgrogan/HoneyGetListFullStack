@@ -37,6 +37,19 @@ a {
   color: rgba(218, 165, 32, 0.705);
 }
 
+.subduedRowText {
+  color: #444;
+  font-size: 0.9rem;
+}
+
+.quantity0 {
+  color: #aaa;
+}
+
+.cartQty0 {
+  color: #ababab;
+}
+
 .flexLeft {
   display: flex;
   justify-content: left;
@@ -57,7 +70,7 @@ a {
 
 .inputClass {
   margin: 0.5rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .oneHalfRemPadLeft {
@@ -70,11 +83,6 @@ a {
 
 .marginAroundTiny {
   margin: 0.1rem;
-}
-
-.subduedRowText {
-  color: #444;
-  font-size: 0.9rem;
 }
 
 header {
@@ -160,6 +168,10 @@ button {
 
 .cartPriority {
   font-size: 0.6rem;
+}
+
+.largeCart {
+  font-size: 1.2rem;
 }
 
 .editItem {
@@ -347,4 +359,21 @@ input:checked + .slider:before {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   // background-color: #bbb;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .wideScreen {
+    display: none;
+  }
+}
+
+/* Wide Screen */
+@media (min-width: 800px) {
+  .mobile {
+    display: none;
+    :root {
+      font: 24px / 1 sans-serif;
+    }
+  }
 }

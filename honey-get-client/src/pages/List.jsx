@@ -74,11 +74,12 @@ const List = props => {
           <ul className="navUl">
             <li className="titleLi flexLeft">
               <Link className="titleH1" to="/">
-                <h1 className="titleH1" to="/">
+                <h1 className="titleH1">
                   <i className="backArrow far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
               <h1 className="oneHalfRemPadLeft titleH1">{list.name}</h1>
+              <p className="marginAroundTiny wideScreen">{list.description}</p>
             </li>
             <li className="optionsLi">
               <div>Priority</div>

@@ -68,17 +68,24 @@ const AddItem = props => {
                   <i className="backArrow far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
-              <Link className="flexCenter" to="/">
+              {/* <Link className="flexCenter" to="/">
                 <h1 className="oneHalfRemPadLeft titleH1">Add Item</h1>
-              </Link>
+              </Link> */}
+
+              <div className="flexCenter">
+                <p className="marginAroundTiny">Item:</p>
+                <h1 className="titleH1">{item.name}</h1>
+                <p className="wideScreen marginAroundTiny">
+                  {item.description}
+                </p>
+              </div>
             </li>
             <li className="optionsLi">
-              <div>Cancel</div>
               <Link
                 className="flexCenter cancel"
                 to={'/List/' + item.thelistid}
               >
-                <h1 className="titleH1 oneHalfRemPadLeft" to="/">
+                <h1 className="titleH1 oneHalfRemPadLeft">
                   <i className="far fa-window-close"></i>
                 </h1>
               </Link>
@@ -92,33 +99,32 @@ const AddItem = props => {
           <form className="AddItemForm" onSubmit={AddItemApiCall}>
             <section className="formInputSection addSection flexCenter">
               <label className="addLabel">
-                <div className="padLeft">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Item Name"
-                    value={item.name}
-                    onChange={handleInputOnChange}
-                    autoFocus
-                    required
-                  />
-                </div>
+                <input
+                  className="inputClass"
+                  type="text"
+                  name="name"
+                  placeholder="Item Name"
+                  value={item.name}
+                  onChange={handleInputOnChange}
+                  autoFocus
+                  required
+                />
+              </label>
+              <label className="addLabel">
+                <input
+                  className="inputClass"
+                  type="text"
+                  name="description"
+                  id="itemDescription"
+                  placeholder="Description optional..."
+                  value={item.description}
+                  onChange={handleInputOnChange}
+                />
               </label>
               <label className="addLabel">
                 <div className="padLeft">
                   <input
-                    type="text"
-                    name="description"
-                    id="itemDescription"
-                    placeholder="Description optional..."
-                    value={item.description}
-                    onChange={handleInputOnChange}
-                  />
-                </div>
-              </label>
-              <label className="addLabel">
-                <div className="padLeft">
-                  <input
+                    className="inputClass"
                     type="number"
                     min="0"
                     name="quantity"
@@ -129,7 +135,7 @@ const AddItem = props => {
                   />
                 </div>
               </label>
-              <div className="flexCenter">
+              <div className="inputClass flexCenter">
                 Priority:
                 <div
                   className={
@@ -137,9 +143,10 @@ const AddItem = props => {
                     priority
                   }
                 >
-                  <i className="fas fa-shopping-cart"></i>
+                  <i className="largeCart fas fa-shopping-cart"></i>
                 </div>
                 <select
+                  className="inputClass"
                   type="number"
                   name="priority"
                   defaultValue="2"
@@ -150,9 +157,11 @@ const AddItem = props => {
                   <option value="3">High</option>
                 </select>
               </div>
-              <button className="addListBtn" type="submit">
-                <i className="fas fa-plus"></i> Create
-                <i className="oneHalfRemPadLeft fas fa-plus"></i>
+              <button
+                className="inputClass flexCenter addListBtn"
+                type="submit"
+              >
+                Add Item
               </button>
             </section>
           </form>

@@ -14,12 +14,14 @@ const AllLists = () => {
     const apiUrl = 'https://honey-get-api.herokuapp.com/api/thelist'
     // const apiUrl = 'https://localhost:5001/api/thelist'
     const resp = await axios.get(apiUrl)
-    setAllLists(resp.data)
+    if (resp.status === 200) {
+      sortArray(resp.data)
+    }
   }
 
   // sort the list
-  const sortArray = () => {
-    let sortedArray = allLists.sort((a, b) =>
+  const sortArray = list => {
+    let sortedArray = list.sort((a, b) =>
       a.maxpriority > b.maxpriority ? 1 : -1
     )
 
@@ -30,6 +32,8 @@ const AllLists = () => {
       setSortedAscending(true)
     }
     setAllLists([...sortedArray])
+
+    console.log('xxxxxxxxxx')
   }
 
   // Use Effect on Page Render
@@ -48,13 +52,13 @@ const AllLists = () => {
                 src="./images/bee.png"
                 alt="Honey Get Lists Logo"
               ></img>
-              <Link className="titleH1" to="/">
-                <h1 className="titleH1">Honey Get Lists</h1>
-              </Link>
+              {/* <Link className="titleH1" to="/"> */}
+              <h1 className="titleH1">Honey Get Lists</h1>
+              {/* </Link> */}
             </li>
             <li className="optionsLi">
               <div>Priority</div>
-              <button className="navBtn" onClick={sortArray}>
+              <button className="navBtn" onClick={() => sortArray(allLists)}>
                 <i className="fas fa-sort"></i>
               </button>
               <button className="navBtn">

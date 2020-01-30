@@ -25,13 +25,16 @@ const ListRow = props => {
             {props.list.name}
           </Link>
           <Link className="listLink" to={'/List/' + props.list.id}>
-            <div className="notForMobile oneHalfRemPadLeft subduedRowText">
+            <div className="mobile oneHalfRemPadLeft subduedRowText">
               <TruncateString
                 key={props.list.id}
                 indexStart={indexStart}
                 maxLength={maxLength}
                 initialStr={props.list.description}
               />
+            </div>
+            <div className="wideScreen oneHalfRemPadLeft subduedRowText">
+              {props.list.description}
             </div>
           </Link>
         </td>

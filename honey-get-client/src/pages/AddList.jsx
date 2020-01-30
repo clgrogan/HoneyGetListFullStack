@@ -51,13 +51,15 @@ const AddList = () => {
                   <i className="backArrow far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
-              <div className="flexCenter one">
-                <p className="marginAroundTiny">List:</p>
+              <div className="flexCenter">
+                <p className="marginAroundTiny">New list:</p>
                 <h1 className="titleH1">{list.name}</h1>
+                <p className="marginAroundTiny wideScreen">
+                  {list.description}
+                </p>
               </div>
             </li>
             <li className="optionsLi">
-              <div>Cancel</div>
               <Link className="flexCenter cancel" to="/">
                 <h1 className="titleH1 oneHalfRemPadLeft" to="/">
                   <i className="far fa-window-close"></i>
@@ -99,9 +101,8 @@ const AddList = () => {
                     maxLength="30"
                   />
                 </label>
-                <button className="addListBtn" type="submit">
-                  <i className="fas fa-plus"></i> Create
-                  <i className="oneHalfRemPadLeft fas fa-plus"></i>
+                <button className="inputClass addListBtn" type="submit">
+                  Add List
                 </button>
               </section>
             </form>
