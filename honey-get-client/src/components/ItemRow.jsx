@@ -128,21 +128,8 @@ const ItemRow = props => {
               'wideScreen flexCenter subduedRowText quantity' + item.quantity
             }
           >
-            {/* <TruncateString
-              key={item.id}
-              indexStart={indexStart}
-              maxLength={maxLength}
-              initialStr={item.description}
-            /> */}
             {item.description}
           </div>
-          {/* <div
-            className={
-              'editItem padAroundTiny halfRemFont quantity' + item.quantity
-            }
-          >
-            <i className="fas fa-edit"></i>
-          </div> */}
         </td>
         {/* <td>{displayDescription}</td> // testing custom hook */}
         <td className="flexCenter">
