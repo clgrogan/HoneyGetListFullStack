@@ -2,31 +2,5 @@ Deployment URL:
 https://honey-get-api.herokuapp.com
 https://honey-get-client-cgrogan.netlify.com
 
-# Defualt Template for SDG .NET Course
-
-This is the default template for a simple .NET Core Web API. This template has:
-
-- CORS Enabled
-- Swagger
-- Postgres & EF Core
-- Ready for Docker Deployment
-
-## TODO:
-
-- Make this in into a template
-
-to use:
-
-- [ ] Update your database name in `DatabaseContext.cs`
-
-to Deploy to heroku:
-
-- [ ] create a web app on heroku, make sure to have the CLI downloaded, installed, logged in and be logged into the container via heroku.
-- [ ] Update your `dockerfile` to use your `*.dll` file instead of `dotnet-sdg-template.dll`
-- [ ] Update the deploy script:
-  - [ ] change `sdg-template-image` to `your-project-name-image`
-  - [ ] change `heroku-web-app` to your web app name on heroku
-
-## PROTIP:
-
-When you are complete with the project and have turned it in to your instructor, update this read me with details about the assignment.
+Shopping List App ⬧ (aka: Honey Get List)
+Full-Stack App. Front-End (Client-side) responsive SPA application using HTML, CSS, JavaScript (JS), React and Axios for API. Back-End (Server-side) using .NET, C#, EF Core with an SQL database. Deployed to Netlify using yarn and Heroku utilizing Docker.
