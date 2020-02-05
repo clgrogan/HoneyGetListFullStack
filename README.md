@@ -2,8 +2,10 @@
 
 # HoneyGetApi
 
-Deployment URL:
+Database & API Deployment URL:
 https://honey-get-api.herokuapp.com
+
+Client Deployment URL:
 https://honey-get-client-cgrogan.netlify.com
 
 Shopping List App ⬧ (aka: Honey Get List)
