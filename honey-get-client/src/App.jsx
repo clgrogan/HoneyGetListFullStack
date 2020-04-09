@@ -1,13 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
-import AllLists from './pages/AllLists'
-import NotFound from './pages/NotFound'
-import List from './pages/List'
-import AddList from './pages/AddList'
-import UpdateList from './pages/UpdateList'
-import AddItem from './pages/AddItem'
-import { Provider as AlertProvider } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
+import AllLists from './pages/AllLists' // The list of lists page
+import NotFound from './pages/NotFound' // Invalid end point page
+import List from './pages/List' // A single list page
+import AddList from './pages/AddList' // Page to accept new list entry info
+import UpdateList from './pages/UpdateList' // Page for updating an existing list
+import AddItem from './pages/AddItem' // Page for adding a  item to a list
+import { Provider as AlertProvider } from 'react-alert' // nice alerts for React https://www.npmjs.com/package/react-alert
+import AlertTemplate from 'react-alert-template-basic' // basic/'default' template for react-alert
+// import NavBar from './components/NavBarAllLists'
 
 const options = {
   position: 'bottom center',
