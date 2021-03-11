@@ -65,7 +65,7 @@ const AddItem = props => {
             <li className="titleLi">
               <Link className="flexCenter" to={'/List/' + item.thelistid}>
                 <h1 className="titleH1">
-                  <i className="backArrow far fa-arrow-alt-circle-left"></i>
+                  <i className="largeIcon far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
               {/* <Link className="flexCenter" to="/">
@@ -143,7 +143,7 @@ const AddItem = props => {
                     priority
                   }
                 >
-                  <i className="largeCart fas fa-shopping-cart"></i>
+                  <i className="mediumIcon fas fa-shopping-cart"></i>
                 </div>
                 <select
                   className="inputClass"

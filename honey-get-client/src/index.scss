@@ -108,6 +108,7 @@ ul {
 }
 .titleH1 {
   margin: 0;
+  padding: 0 0.2rem;
 }
 
 .navImage {
@@ -166,12 +167,16 @@ button {
   color: black;
 }
 
-.cartPriority {
-  font-size: 0.6rem;
+// .cartPriority {
+//   font-size: 0.6rem;
+// }
+
+.mediumIcon {
+  font-size: 1.1rem;
 }
 
-.largeCart {
-  font-size: 1.2rem;
+.largeIcon {
+  font-size: 1.7rem;
 }
 
 .editItem {
@@ -356,11 +361,6 @@ input:checked + .slider:before {
   display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  // background-color: #bbb;
-}
-
 /* Mobile */
 @media (max-width: 800px) {
   .wideScreen {
@@ -376,4 +376,7 @@ input:checked + .slider:before {
       font: 24px / 1 sans-serif;
     }
   }
+}
+
+@media (max-width: 799px) {
 }

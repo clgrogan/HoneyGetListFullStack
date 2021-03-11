@@ -9,8 +9,6 @@ const ItemRow = props => {
   const indexStart = 0 // Used for truncation
   const maxLength = 20 // Used for truncation
   // console.log('The ItemRow props: ', props)
-  // const [displayDescription] = useTruncateString(0, 20, props.item.description)
-  // const [quantity, setQuantity] = useState(props.item.quantity)
   const [isDeleted, setIsDeleted] = useState(false)
 
   const [item, setItem] = useState({
@@ -91,7 +89,7 @@ const ItemRow = props => {
             alt="Check Item Off Button"
             onClick={satisfyItem}
           >
-            <i className="far fa-check-circle"></i>
+            <i className="far fa-check-circle largeIcon"></i>
           </div>
           <div
             onClick={incrementPriority}
@@ -103,7 +101,7 @@ const ItemRow = props => {
             }
           >
             <i
-              className={'fas fa-shopping-cart cartQty' + item.quantity}
+              className={'fas fa-shopping-cart mediumIcon cartQty' + item.quantity}
               alt={'Item Priority ' + item.priority}
             ></i>
           </div>
@@ -132,7 +130,7 @@ const ItemRow = props => {
           </div>
         </td>
         {/* <td>{displayDescription}</td> // testing custom hook */}
-        <td className="flexCenter">
+        <td className="flexCenter largeIcon">
           <div
             className="flexCenter"
             alt="Decrease Quantity Button"
@@ -146,7 +144,7 @@ const ItemRow = props => {
             ></i>
           </div>
           <div
-            className={'flexCenter marginAroundTiny quantity' + item.quantity}
+            className={'flexCenter marginAroundTiny mediumIcon quantity' + item.quantity}
           >
             ({item.quantity})
           </div>

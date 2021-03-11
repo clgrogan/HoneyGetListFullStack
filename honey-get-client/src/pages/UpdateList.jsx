@@ -64,7 +64,7 @@ const UpdateList = props => {
             <li className="titleLi">
               <Link className="flexCenter" to={'/List/' + listId}>
                 <h1 className="titleH1">
-                  <i className="backArrow far fa-arrow-alt-circle-left"></i>
+                  <i className="largeIcon far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
               <div className="flexCenter">

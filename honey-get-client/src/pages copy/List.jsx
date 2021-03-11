@@ -75,7 +75,7 @@ const List = props => {
             <li className="titleLi flexLeft">
               <Link className="titleH1" to="/">
                 <h1 className="titleH1">
-                  <i className="backArrow far fa-arrow-alt-circle-left"></i>
+                  <i className="largeIcon far fa-arrow-alt-circle-left"></i>
                 </h1>
               </Link>
               <h1 className="oneHalfRemPadLeft titleH1">{list.name}</h1>

@@ -39,7 +39,7 @@ const ListRow = props => {
           </Link>
         </td>
         <td>
-          <Link to={'/List/' + props.list.id}>({props.list.itemcount})</Link>
+          <Link className="mediumIcon" to={'/List/' + props.list.id}>({props.list.itemcount})</Link>
         </td>
       </tr>
     </>
